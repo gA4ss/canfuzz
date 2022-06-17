@@ -6,7 +6,7 @@ describe = '当前策略用于TCP2CAN模式测试,这里将TCP2CAN~1与TCP2CAN~2
 modules = {
     'io/hw_TCP2CAN~1': {'mode': 'server', 'port': 1111, 'address': '127.0.0.1'},
     'io/hw_TCP2CAN~2': {'mode': 'client', 'port': 1111, 'address': '127.0.0.1'},
-    'basic/analyze': {},
+    'tools/analyze': {},
 }
 
 actions = [

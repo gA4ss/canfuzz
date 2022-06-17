@@ -4,7 +4,7 @@ name = '分析引擎测试'
 describe = '当前策略用于分析引擎测试。'
 
 modules = {
-    'basic/analyze': {}
+    'tools/analyze': {}
 }
 
 actions = [

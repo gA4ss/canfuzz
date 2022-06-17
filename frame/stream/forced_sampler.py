@@ -7,23 +7,23 @@ from frame.stream.sampler import Sampler
 
 
 class ForcedSampler(Processor):
-  def __init__(self, power: int, joiner: callable):
-    self._power = power
-    self._joiner = joiner
-    self._sampler = Sampler(True)
-    self._streams = set()
+    def __init__(self, power: int, joiner: callable):
+        self._power = power
+        self._joiner = joiner
+        self._sampler = Sampler(True)
+        self._streams = set()
 
-  def process(self, message) -> Iterable:
-    stream = str(message)
+    def process(self, message) -> Iterable:
+        stream = str(message)
 
-    if stream not in self._streams:
-      self._streams.add(stream)
+        if stream not in self._streams:
+            self._streams.add(stream)
 
-      for bind in combinations(self._streams, self._power):
-        if stream in bind:
-          self._sampler.bind(sorted(bind), self._joiner)
+            for bind in combinations(self._streams, self._power):
+                if stream in bind:
+                    self._sampler.bind(sorted(bind), self._joiner)
 
-    yield from self._sampler.process(message)
+        yield from self._sampler.process(message)
 
-  def flush(self) -> Iterable:
-    yield from self._sampler.flush()
+    def flush(self) -> Iterable:
+        yield from self._sampler.flush()

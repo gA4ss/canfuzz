@@ -4,8 +4,8 @@ name = 'FUZZ引擎测试'
 describe = '当前策略用于FUZZ引擎测试。'
 
 modules = {
-    'basic/fuzz': {},
-    'basic/analyze': {},
+    'tools/fuzz': {},
+    'tools/analyze': {},
 }
 
 actions = [

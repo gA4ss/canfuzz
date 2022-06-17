@@ -1,5 +1,7 @@
 # 介绍
 
+此文件是整个canfuzz的启动文件，负责创建引擎对象以及命令行框架。
+
 # 主要执行流程
 
 *main.py*中调用`run_canfuzz`，此函数首先生成一个`L6Engine`的类，改类是整个程序框架的引擎类负责调用起来各种模块。
@@ -22,56 +24,3 @@ start命令，在程序启用后即可使用start来进行调用。也可自行�
 # 帮助说明
 
 帮助命令`help`，调用了`do_help`函数，如果`help`命令后跟子功能模块的id则列出的就是子功能模块的帮助说明，如果是命令则打印该命令的帮助。子模块的id通过命令`view`进行查看。
-
-# 分模块介绍
-
-canfuzz是一个模块化的结构程序，通过不同模块组合实现不同功能。每个子功能模块的实现都是一个继承自`kernel/module.py`文件下`Command`类的类。通过基类[`Command`](command.md)，L6引擎来通一管理子功能模块的接口。
-
-## IO模块
-
-* [CANSocket](modules/hw_CANSocket.md)
-* [hw_edeck](modules/hw_edeck.md)
-* [hw_fackIO](modules/hw_fakeIO.md)
-* [TCP2CAN](modules/hw_TCP2CAN.md)
-
-## 分析模块
-
-* analyze
-* filter
-* fuzz
-* ping
-* pipe_switch
-* replay
-
-# 策略文件
-参见[策略文件.md](config.md)
-
-# 协议解析
-
-目前本模块支持三种车辆常见的协议：
-
-1. [*CAN协议*](can.md)
-2. [*ISOTP协议*](isotp.md)
-3. [*UDS协议*](uds.md)
-
-# 数据结构模块
-
-1. [*iostream*](stream.md)
-2. [*cmdres*](stream.md)
-3. [*forced_sampler*](stream.md)
-4. [*integrator*](stream.md)
-5. [*normalizer*](stream.md)
-6. [*processor*](stream.md)
-7. [*sampler*](stream.md)
-8. [*selector*](stream.md)
-9. [*separator*](stream.md)
-10. [*subnet*](stream.md)
-11. [*threaderror*](stream.md)
-
-# 辅助模块
-
-1. [*bits*](utils.md)
-2. [*correl*](utils.md)
-3. [*frag*](frag.md)
-4. [*replay*](replay.md)
-5. [*stats*](utils.md)

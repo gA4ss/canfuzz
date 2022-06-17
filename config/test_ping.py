@@ -4,8 +4,8 @@ describe = '当前策略用于车辆未知设备的探索。'
 
 modules = {
     'io/hw_edeck': {'bus_num': 0, 'bus_speed': 500},
-    'basic/analyze': {},
-    'basic/ping': {}
+    'tools/analyze': {},
+    'tools/ping': {}
 }
 
 actions = [

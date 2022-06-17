@@ -5,8 +5,8 @@ describe = "当前策略用于通过硬件设备读取CAN数据包并进行UDS�
 
 modules = {
     'io/hw_edeck': {'bus_speed': 500}, 
-    'basic/ping': {}, 
-    'basic/analyze': {}
+    'tools/ping': {}, 
+    'tools/analyze': {}
 }
 
 actions = [
