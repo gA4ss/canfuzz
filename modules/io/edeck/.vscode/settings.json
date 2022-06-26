@@ -1,0 +1,27 @@
+{
+  "files.associations": {
+    "gitversion.h": "c",
+    "pwm.h": "c",
+    "config.h": "c",
+    "flasher.h": "c",
+    "safety_mazda.h": "c",
+    "safety_declarations.h": "c",
+    "safety_subaru.h": "c",
+    "safety_hyundai.h": "c",
+    "safety_honda.h": "c",
+    "safety_chrysler.h": "c",
+    "safety_gm.h": "c",
+    "safety_nissan.h": "c",
+    "safety_volkswagen_pq.h": "c",
+    "safety_elm327.h": "c",
+    "safety_body.h": "c",
+    "safety_volkswagen_mqb.h": "c",
+    "safety_tesla.h": "c",
+    "safety_toyota.h": "c",
+    "stm32fx_config.h": "c",
+    "can_definitions.h": "c",
+    "main_declarations.h": "c",
+    "bootstub_declarations.h": "c",
+    "registers.h": "c"
+  }
+}

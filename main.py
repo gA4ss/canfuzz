@@ -168,6 +168,7 @@ def run_canfuzz():
     #
     if len(sys.argv) >= 2:
         can_engine.load_config(sys.argv[1])
+    # can_engine.load_config('./config/test_edeck.py')
 
     # run command line
     prompt = FrameCLI(can_engine)

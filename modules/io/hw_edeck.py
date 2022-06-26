@@ -249,6 +249,7 @@ class hw_edeck(CANModule):
         while True:
             try:
                 for device in context.getDeviceList(skip_on_error=True):
+                    print(device.getVendorID())
                     if device.getVendorID() == 0xbbaa and device.getProductID() in [0xddcc, 0xddee]:
                         try:
                             this_serial = device.getSerialNumber()
