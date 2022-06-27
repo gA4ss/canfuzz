@@ -226,6 +226,7 @@ class Panda:
             if self._serial is None or this_serial == self._serial:
               self._serial = this_serial
               print("opening device", self._serial, hex(device.getProductID()))
+              # use bootstub in 0xddee product
               self.bootstub = device.getProductID() == 0xddee
               self._handle = device.open()
               if sys.platform not in ("win32", "cygwin", "msys", "darwin"):

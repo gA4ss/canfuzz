@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "usb.h": "c",
+    "can_common.h": "c",
+    "gmlan_alt.h": "c",
+    "kline_init.h": "c",
+    "early_init.h": "c",
+    "gitversion.h": "c",
+    "usb_comms.h": "c"
+  }
+}
