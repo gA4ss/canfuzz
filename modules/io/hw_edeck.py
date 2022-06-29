@@ -18,6 +18,7 @@ SAFETY_NOOUTPUT = 0
 SAFETY_HONDA = 1
 SAFETY_TOYOTA = 2
 SAFETY_HONDA_BOSCH = 4
+
 SAFETY_TOYOTA_NOLIMITS = 0x1336
 SAFETY_ALLOUTPUT = 0x1337
 SAFETY_ELM327 = 0xE327
@@ -102,6 +103,7 @@ class hw_edeck(CANModule):
         if self._handle is None and not self._run:
             self.connect(self._claim, self._wait)
             self.set_can_speed_kbps(self._bus_num, self._bus_speed)
+            self.set_safety_mode(SAFETY_ALLOUTPUT)
             self._run = True
 
     def do_stop(self, params):
@@ -249,7 +251,6 @@ class hw_edeck(CANModule):
         while True:
             try:
                 for device in context.getDeviceList(skip_on_error=True):
-                    print(device.getVendorID())
                     if device.getVendorID() == 0xbbaa and device.getProductID() in [0xddcc, 0xddee]:
                         try:
                             this_serial = device.getSerialNumber()
