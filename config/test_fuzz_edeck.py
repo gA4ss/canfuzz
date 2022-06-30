@@ -4,7 +4,7 @@ name = '真实FUZZ引擎测试'
 describe = '用于真实环境下的FUZZ测试'
 
 modules = {
-    'io/hw_edeck': {'bus_num': 0, 'bus_speed': 500, 'active': False},
+    'io/hw_edeck': {'bus_num': 0, 'bus_speed': 500, 'active': 'False'},
     'tools/fuzz': {},
     'tools/analyze': {},
 }
