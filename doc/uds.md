@@ -27,7 +27,7 @@
 
 ## OSI诊断模型
 
-![uds1](../canfuzz/img/uds1.png)
+![uds1](./img/uds1.png)
 
 ## 常见名词解释
 
@@ -45,7 +45,7 @@
 
 ## 诊断请求报文
 
-![uds2](../canfuzz/img/uds2.png)
+![uds2](./img/uds2.png)
 
 srp=1，ECU不给出**正响应**srp=0，ECU给出**正响应**；目的：告诉ECU是否需要发送响应数据；
 
@@ -577,7 +577,7 @@ subFunction：
 		0x64| 0x09 0x67| 0x22(2个数据字节)| 0x03 0x43					
 ```
 
-![uds3](../canfuzz/img/uds3.png)
+![uds3](./img/uds3.png)
 
 #### 0x2A - ReadDataByPeriodicIdentifier
 
@@ -1166,7 +1166,7 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 执行过程中每步都需要指定该步骤允许的寻址方法，依据OEM要求选择功能地址或物理地址。基础过程如下：
 
-![uds4](../canfuzz/img/uds4.png)
+![uds4](./img/uds4.png)
 
 **主执行**：协调/同步多个并行运行的编程步骤，控制“预编程步骤”和“后编程步骤”的执行，以及将车辆维持在其已转换到的操作模式中。如将车辆网络转换为允许对单个ECU编程的操作模式或编程节点的结论。
 
@@ -1217,7 +1217,7 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 使ECU进入扩展模式。
 
-![uds5](../canfuzz/img/uds5.png)
+![uds5](./img/uds5.png)
 
 02，0代表单帧，2代表2个长度有效数据，10 03 发起扩展服务请求。
 06，0代表单帧，6代表6个长度有效数据，50 03 是对应的指令响应。
@@ -1226,7 +1226,7 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 设置禁止故障码，关闭DTC功能。
 
-![uds6](../canfuzz/img/uds6.png)
+![uds6](./img/uds6.png)
 
 85 02，85为服务指令，子服务02关闭指令。
 
@@ -1234,7 +1234,7 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 关闭非刷写数据流，关闭普通应用报文。
 
-![uds7](../canfuzz/img/uds7.png)
+![uds7](./img/uds7.png)
 
 注意事项：当对传输进行传输失能时，使用0x3E服务将服务器状态保持。
 
@@ -1246,7 +1246,7 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 切换模式，进入编程模式。
 
-![uds8](../canfuzz/img/uds8.png)
+![uds8](./img/uds8.png)
 
 10 02 指令，10切换模式，自服务02表示编程模式。
 
@@ -1254,51 +1254,51 @@ ECU上具有BootLoader程序，以解析向ECU发送的诊断指令；编程步�
 
 #### a.对ECU进行解锁验证
 
-![uds9](../canfuzz/img/uds9.png)
+![uds9](./img/uds9.png)
 
 27 01指令，27安全服务，子服务01为请求seed，得到21 74，进行计算之后，再给出响应。
 
 #### b.响应种子请求
 
-![uds10](../canfuzz/img/uds10.png)
+![uds10](./img/uds10.png)
 
 诊断仪给出响应key为47 11，ECU进行校验判断。
 
 #### 擦除flash
 
-![uds11](../canfuzz/img/uds11.png)
+![uds11](./img/uds11.png)
 
 31 启动擦除， FF 00 协议规定erase memory DID；
 
 #### 请求下载
 
-![uds12](../canfuzz/img/uds12.png)
+![uds12](./img/uds12.png)
 
 #### a.数据传输
 
-![uds13](../canfuzz/img/uds13.png)
+![uds13](./img/uds13.png)
 
-![uds14](../canfuzz/img/uds14.png)
+![uds14](./img/uds14.png)
 
-![uds15](../canfuzz/img/uds15.png)
+![uds15](./img/uds15.png)
 
 #### b.数据传输结束
 
-![uds16](../canfuzz/img/uds16.png)
+![uds16](./img/uds16.png)
 
 
 #### 数据验证
-![uds17](../canfuzz/img/uds17.png)
+![uds17](./img/uds17.png)
 
 ### 后编程
 
 #### 写入VIN码
 
-![uds18](../canfuzz/img/uds18.png)
+![uds18](./img/uds18.png)
 
 #### ECU重启
 
-![uds19](../canfuzz/img/uds19.png)
+![uds19](./img/uds19.png)
 
 
 

@@ -11,16 +11,16 @@ UDS定义的是诊断服务，属于应用层的内容，实现诊断通信的�
 
 其中SingleFrame用于长度不超过7个字节的诊断命令或响应。FirstFrame，ConsecutiveFrame，FlowControl用于传输长度大于7个字节的诊断命令或响应。每个诊断帧的第一个字节的高4bit用于描述该帧的类型，即该帧属于上述四种中的哪一种。
 
-![isotp1](../canfuzz/img/isotp1.png)
+![isotp1](./img/isotp1.png)
 
 SingleFrame用于下面这种简单的场景：当诊断报文长度小于等于7时，再加上一个字节的PCI控制信息就是小于等于8，可以在一帧CAN报文上传输，所以不需要进行分包。此时数据域的第一个字节高4bit值为0000，标识这是一个帧SingleFrame，低4bit是SF_DL，即DataLength，描述后面有几个字节。如果有没有使用的字节，通常要用0x55或0xAA来填充，因为这两个值的二进制表述其实就是01010101和10101010，这样在CAN总线上可以让信号跳变得更频繁一些，不会出现长时间电平不变的情况。
 
-![isotp2](../canfuzz/img/isotp2.jpg)
+![isotp2](./img/isotp2.jpg)
 
 如果一帧CAN报文无法承载一条诊断报文，则需要按照下面的流程进行分包发送：
 
 
-![isotp3](../canfuzz/img/isotp3.jpg)
+![isotp3](./img/isotp3.jpg)
 
 首先，发送端要以一个FirstFrame开启通信，告诉接收端还有后续的内容要发，FirstFrame使用前两个字节作为PCI信息，第一个字节高4bit为0001，标识这是一个FirstFrame，低4bit加上第二个字节用于描述总共发送的数据长度是多少（包括在FirstFrame中和在ConsecutiveFrame中的所有字节数）。
 
