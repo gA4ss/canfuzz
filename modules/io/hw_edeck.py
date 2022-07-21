@@ -14,26 +14,11 @@ from frame.message.can import CANMessage, CANSploitMessage
 from frame.kernel.module import CANModule, Command
 from frame.stream.cmdres import CmdResult, CMDRES_STR
 
-SAFETY_NOOUTPUT = 0
-SAFETY_HONDA = 1
-SAFETY_TOYOTA = 2
-SAFETY_HONDA_BOSCH = 4
-
-SAFETY_TOYOTA_NOLIMITS = 0x1336
-SAFETY_ALLOUTPUT = 0x1337
-SAFETY_ELM327 = 0xE327
-
-SERIAL_DEBUG = 0
-SERIAL_ESP = 1
-SERIAL_LIN1 = 2
-SERIAL_LIN2 = 3
-
-GMLAN_CAN2 = 1
-GMLAN_CAN3 = 2
+SAFETY_NOOUTPUT = 19
+SAFETY_ALLOUTPUT = 17
 
 REQUEST_IN = usb1.ENDPOINT_IN | usb1.TYPE_VENDOR | usb1.RECIPIENT_DEVICE
 REQUEST_OUT = usb1.ENDPOINT_OUT | usb1.TYPE_VENDOR | usb1.RECIPIENT_DEVICE
-
 
 class hw_edeck(CANModule):
     name = "电子甲板"
